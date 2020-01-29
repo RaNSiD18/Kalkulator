@@ -9,6 +9,7 @@ public class StackInt {
     }
 
     public final void push(int val) {
+
         array[head++] = val;
     }
 

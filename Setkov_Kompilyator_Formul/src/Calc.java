@@ -15,18 +15,141 @@ public class Calc extends Compf {
     }
 
     protected void nextOper(char c) {
-        int second = s.pop();
-        int first = s.pop();
-        switch (c) {
-            case '+':
-                s.push(first + second); break;
-            case '-':
-                s.push(first - second); break;
-            case '*':
-                s.push(first * second); break;
-            case '/':
-                s.push(first / second); break;
+        int osn1, osn2, pre1, pre2, sum1 = 0, sum2 = 0, second = s.pop();
+        int num1 = 0, first = s.pop();
+        num1 = num1 + 1;
+
+
+        System.out.println((first + "").length());
+        System.out.println((second + "").length());
+
+        osn2 = (second + "").length();
+        osn1 = (first + "").length();
+
+        if(num1 == 1) {
+            if (osn1 == 4) {
+                pre1 = first / 1000;
+                sum1 = sum1 + pre1 * 8 * 8 * 8;
+                osn1--;
+            }
+            if (osn1 == 3) {
+                if ((first + "").length() == 4) {
+                    pre1 = first / 100 % 10;
+                    sum1 = sum1 + pre1 * 8 * 8;
+                }
+                if ((first + "").length() == 3) {
+                    pre1 = first / 100;
+                    sum1 = sum1 + pre1 * 8 * 8;
+                }
+
+                osn1--;
+            }
+            if (osn1 == 2) {
+                if ((first + "").length() == 4) {
+                    pre1 = first % 100 / 10;
+                    sum1 = sum1 + pre1 * 8;
+                }
+                if ((first + "").length() == 3) {
+                    pre1 = first / 10 % 10;
+                    sum1 = sum1 + pre1 * 8;
+                }
+                if ((first + "").length() == 2) {
+                    pre1 = first / 10;
+                    sum1 = sum1 + pre1 * 8;
+                }
+                osn1--;
+            }
+            if (osn1 == 1) {
+                if ((first + "").length() == 4) {
+                    pre1 = first % 10;
+                    sum1 = sum1 + pre1;
+                }
+                if ((first + "").length() == 3) {
+                    pre1 = first % 10;
+                    sum1 = sum1 + pre1;
+                }
+                if ((first + "").length() == 2) {
+                    pre1 = first % 10;
+                    sum1 = sum1 + pre1;
+                }
+                if ((first + "").length() == 1) {
+                    pre1 = first;
+                    sum1 = sum1 + pre1;
+                }
+                osn1--;
+            }
+            first = sum1;
         }
+
+        if(num1 == 1) {
+            if (osn2 == 4) {
+                pre2 = second / 1000;
+                sum2 = sum2 + pre2 * 8 * 8 * 8;
+                osn2--;
+            }
+            if (osn2 == 3) {
+                if ((second + "").length() == 4) {
+                    pre2 = second / 100 % 10;
+                    sum2 = sum2 + pre2 * 8 * 8;
+                }
+                if ((second + "").length() == 3) {
+                    pre2 = first / 100;
+                    sum2 = sum2 + pre2 * 8 * 8;
+                }
+
+                osn2--;
+            }
+
+                if ((second + "").length() == 4) {
+                    pre2 = second % 100 / 10;
+                    sum2 = sum2 + pre2 * 8;
+                }
+                if ((second + "").length() == 3) {
+                    pre2 = second / 10 % 10;
+                    sum2 = sum2 + pre2 * 8;
+                }
+                if ((second + "").length() == 2) {
+                    pre2 = second / 10;
+                    sum2 = sum2 + pre2 * 8;
+                }
+                osn2--;
+            }
+            if (osn2 == 1) {
+                if ((second + "").length() == 4) {
+                    pre2 = second % 10;
+                    sum2 = sum2 + pre2;
+                }
+                if ((second + "").length() == 3) {
+                    pre2 = second % 10;
+                    sum2 = sum2 + pre2;
+                }
+                if ((second + "").length() == 2) {
+                    pre2 = second % 10;
+                    sum2 = sum2 + pre2;
+                }
+                if ((second + "").length() == 1) {
+                    pre2 = second;
+                    sum2 = sum2 + pre2;
+                }
+                osn2--;
+            }
+            second = sum2;
+
+
+            switch (c) {
+                case '+':
+                    s.push(first + second);
+                    break;
+                case '-':
+                    s.push(first - second);
+                    break;
+                case '*':
+                    s.push(first * second);
+                    break;
+                case '/':
+                    s.push(first / second);
+                    break;
+            }
 
 
 }
